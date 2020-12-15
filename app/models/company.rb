@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
   has_many  :contacts
-  has_many  :locations
+  has_many  :countries
+  has_many  :cities,   through: :countries
   has_many  :users,    through: :prospections
 
   validates :name,     presence: true
