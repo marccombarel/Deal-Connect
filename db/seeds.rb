@@ -18,7 +18,7 @@ basile   = User.create!(first_name:'Basile',   last_name:'DJBaz',           comp
 puts '   Users created'
 
 
-puts '• creating companies:'
+puts '• Creating companies:'
 theodo   = Company.create!(name:'Theodo',  url:'https://www.theodo.fr/',  industry:'Internet',              size:'51-200 employés',  info:'patati patata')
 newtonx  = Company.create!(name:'Newtonx', url:'https://www.newtonx.com', industry:'Market research',       size:'51-200 employés',  info:'patati patata')
 dolead   = Company.create!(name:'Dolead',  url:'https://www.theodo.fr/',  industry:'Internet',              size:'51-200 employés',  info:'patati patata')
@@ -27,9 +27,31 @@ le_chti  = Company.create!(name:'Le Chti', url:'https://lechti.com/',     indust
 puts '   Companies created'
 
 
-puts '• Creating/Adding locations to companies'
-# theodo_location   = Company.create!(country:'Theodo',  city:'https://www.theodo.fr/',  industry:'Internet')
-# newtonx_location  = Company.create!(country:'Newtonx', city:'https://www.newtonx.com', industry:'Market research')
-# dolead_location   = Company.create!(country:'Dolead',  city:'https://www.theodo.fr/',  industry:'Internet')
-# side_location     = Company.create!(country:'Side.co', city:'https://www.side.co/fr/', industry:'Internet')
-# le_chti_location  = Company.create!(country:'Le Chti', city:'https://lechti.com/',     industry:'Printing and editing')
+puts '• Adding countries to companies:'
+theodo_fr   = Country.create!(iso:"FR",  name:"France",        company: theodo)
+newtonx_us  = Country.create!(iso:"US",  name:"United States", company: newtonx)
+dolead_fr   = Country.create!(iso:"FR",  name:"France",        company: dolead)
+dolead_us   = Country.create!(iso:"US",  name:"United States", company: dolead)
+side_fr     = Country.create!(iso:"FR",  name:"France",        company: side)
+le_chti_fr  = Country.create!(iso:"FR",  name:"France",        company: le_chti)
+puts '   Countries added'
+
+
+puts '• Adding cities to companies country:'
+City.create!(name:"Paris",    country: theodo_fr)
+City.create!(name:"New York", country: newtonx_us)
+City.create!(name:"Paris",    country: dolead_fr)
+City.create!(name:"Boston",   country: dolead_us)
+City.create!(name:"Paris",    country: side_fr)
+City.create!(name:"Lille",    country: le_chti_fr)
+puts '   Cities added'
+
+
+puts '• Adding contacts to companies:'
+# City.create!(name:"Paris",    country: theodo_fr)
+# City.create!(name:"New York", country: newtonx_us)
+# City.create!(name:"Paris",    country: dolead_fr)
+# City.create!(name:"Boston",   country: dolead_us)
+# City.create!(name:"Paris",    country: side_fr)
+# City.create!(name:"Lille",    country: le_chti_fr)
+puts '   Contacts added'
